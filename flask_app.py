@@ -8,6 +8,6 @@ app = flask.Flask(__name__)
 def index():
     return flask.render_template("index.html")
 
-app.route("/sig")
+@app.route("/sig")
 def sig():
     return "sig sim"
