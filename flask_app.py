@@ -2,7 +2,7 @@ import flask
 import os
 
 os.chdir("./mysite/")
-app = flask.Flas(__name__)
+app = flask.Flask(__name__)
 
 @app.route("/")
 def index():
