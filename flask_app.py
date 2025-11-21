@@ -1,3 +1,5 @@
+DEV = False
+
 import flask
 import os
 import json
@@ -13,7 +15,7 @@ def writeJSON(path, content):
 def logged_in():
     return "logged_in" in flask.session and flask.session["logged_in"] == True and "user" in flask.session
 
-# os.chdir("./mysite/")
+if not DEV: os.chdir("./mysite/")
 app = flask.Flask(__name__)
 app.secret_key = "123"
 
@@ -41,4 +43,4 @@ def sig():
     if not logged_in(): return flask.redirect(flask.url_for("index"))
     return "sig sim"
 
-app.run()
+if DEV: app.run()
